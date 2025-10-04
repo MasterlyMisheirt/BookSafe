@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -12,7 +13,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = Auth::id();
+        $books = Book::where('user_id', $user_id)->latest('updated_at')->get();
+        return view('books.index')->with('books', $books);
     }
 
     /**
