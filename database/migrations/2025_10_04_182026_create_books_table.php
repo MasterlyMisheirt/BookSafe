@@ -14,7 +14,6 @@ return new class extends Migration {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('google_book_id')->unique();
-            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->string('title');
             $table->string('subtitle')->nullable();
             $table->json('authors')->nullable();
@@ -24,6 +23,7 @@ return new class extends Migration {
             $table->integer('page_count')->nullable();
             $table->json('categories')->nullable();
             $table->string('thumbnail')->nullable();
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

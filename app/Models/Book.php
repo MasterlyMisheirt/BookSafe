@@ -11,7 +11,6 @@ class Book extends Model
 
     protected $fillable = [
         'google_book_id',
-        'user_id',
         'title',
         'subtitle',
         'authors',
@@ -21,6 +20,7 @@ class Book extends Model
         'page_count',
         'categories',
         'thumbnail',
+        'user_id'
     ];
 
     protected $casts = [
