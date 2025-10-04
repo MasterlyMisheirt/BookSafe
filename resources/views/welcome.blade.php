@@ -16,15 +16,15 @@
 </head>
 <body class="font-sans antialiased min-h-screen grid place-items-center">
 @if (Route::has('login'))
-    @auth
-        <a
-            href="{{ url('/dashboard') }}"
-            class="text-indigo-600 hover:text-indigo-800"
-        >
-            Dashboard
-        </a>
-    @else
-        <div class="absolute top-0 right-0 p-6">
+    <div class="absolute top-0 right-0 p-6">
+        @auth
+            <a
+                href="{{ url('/dashboard') }}"
+                class="text-indigo-600 hover:text-indigo-800"
+            >
+                Dashboard
+            </a>
+        @else
             <a
                 href="{{ route('login') }}"
                 class="text-indigo-600 hover:text-indigo-800 mr-4"
@@ -39,8 +39,8 @@
                     Register
                 </a>
             @endif
-        </div>
-    @endauth
+        @endauth
+    </div>
 @endif
 <h1 class="text-7xl">BookSafe</h1>
 </body>
