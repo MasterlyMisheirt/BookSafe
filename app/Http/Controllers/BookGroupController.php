@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BookGroup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookGroupController extends Controller
 {
@@ -12,7 +13,9 @@ class BookGroupController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = Auth::id();
+        $bookGroups = BookGroup::where('user_id', $user_id)->latest('updated_at')->paginate(7);
+        return view('book_groups.index')->with('bookGroups', $bookGroups);
     }
 
     /**
@@ -20,7 +23,7 @@ class BookGroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('book_groups.create');
     }
 
     /**
@@ -28,7 +31,17 @@ class BookGroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $bookGroup = new BookGroup([
+            'user_id' => Auth::id(),
+            'name' => $request->get('name'),
+        ]);
+        $bookGroup->save();
+
+        return to_route('book-groups.index');
     }
 
     /**
@@ -36,7 +49,10 @@ class BookGroupController extends Controller
      */
     public function show(BookGroup $bookGroup)
     {
-        //
+        if ($bookGroup->user_id !== Auth::id()) {
+            abort(403);
+        }
+        return view('book_groups.show', ['bookGroup' => $bookGroup]);
     }
 
     /**

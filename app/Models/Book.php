@@ -20,6 +20,7 @@ class Book extends Model
         'page_count',
         'categories',
         'thumbnail',
+        'book_group_id',
         'user_id'
     ];
 
@@ -27,4 +28,9 @@ class Book extends Model
         'authors' => 'array',
         'categories' => 'array',
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'google_book_id';
+    }
 }

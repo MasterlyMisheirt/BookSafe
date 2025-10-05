@@ -44,6 +44,8 @@ class BookController extends Controller
             'description' => $request->get('description')
         ]);
         $book->save();
+
+        return to_route('books.index');
     }
 
     /**

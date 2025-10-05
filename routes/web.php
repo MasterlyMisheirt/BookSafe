@@ -18,4 +18,4 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 Route::resource('books', BookController::class)->middleware('auth');
-Route::resource('book-sets', BookGroupController::class)->middleware('auth');
+Route::resource('book-groups', BookGroupController::class)->middleware('auth');

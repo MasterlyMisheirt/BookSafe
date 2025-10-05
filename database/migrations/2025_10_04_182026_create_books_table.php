@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\BookGroup;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -23,6 +24,7 @@ return new class extends Migration {
             $table->integer('page_count')->nullable();
             $table->json('categories')->nullable();
             $table->string('thumbnail')->nullable();
+            $table->foreignIdFor(BookGroup::class)->nullable()->constrained()->nullOnDelete();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });

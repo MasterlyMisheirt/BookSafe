@@ -11,6 +11,6 @@ class BookGroup extends Model
 
     protected $fillable = [
         'name',
-        'book_id',
+        'user_id',
     ];
 }
