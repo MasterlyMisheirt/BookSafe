@@ -7,6 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-a  uto sm:px-6 lg:px-8 space-y-6">
+            <x-link-button href="{{ route('books.create') }}">+ New Book</x-link-button>
             @forelse ($books as $book)
                 <div class="bg-white p-6 overflow-hidden shadow-sm sm:rounded-lg">
                     <h2 class="font-bold text-2xl text-indigo-600">{{ $book->title }}</h2>

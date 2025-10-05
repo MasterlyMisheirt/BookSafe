@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class BookController extends Controller
 {
@@ -23,7 +24,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('books.create');
     }
 
     /**
@@ -31,7 +32,18 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        $book = new Book([
+            'user_id' => Auth::id(),
+            'google_book_id' => Str::uuid()->toString(),
+            'title' => $request->get('title'),
+            'description' => $request->get('description')
+        ]);
+        $book->save();
     }
 
     /**
