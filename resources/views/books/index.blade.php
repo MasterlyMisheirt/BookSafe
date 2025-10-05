@@ -10,12 +10,13 @@
             @forelse ($books as $book)
                 <div class="bg-white p-6 overflow-hidden shadow-sm sm:rounded-lg">
                     <h2 class="font-bold text-2xl text-indigo-600">{{ $book->title }}</h2>
-                    <p class="mt-2">{{ $book->description }}</p>
+                    <p class="mt-2">{{ Str::limit($book->description, 350, '...') }}</p>
                     <span class="block mt-4 text-sm opacity-70">{{ $book->updated_at->diffForHumans() }}</span>
                 </div>
             @empty
                 <p>You have no books yet</p>
             @endforelse
+            {{ $books->links() }}
         </div>
     </div>
 </x-app-layout>

@@ -14,7 +14,7 @@ class BookController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        $books = Book::where('user_id', $user_id)->latest('updated_at')->get();
+        $books = Book::where('user_id', $user_id)->latest('updated_at')->paginate(4);
         return view('books.index')->with('books', $books);
     }
 

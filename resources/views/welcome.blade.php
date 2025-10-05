@@ -19,10 +19,10 @@
     <div class="absolute top-0 right-0 p-6">
         @auth
             <a
-                href="{{ url('/dashboard') }}"
+                href="{{ route('books.index') }}"
                 class="text-indigo-600 hover:text-indigo-800"
             >
-                Dashboard
+                Go to books
             </a>
         @else
             <a
