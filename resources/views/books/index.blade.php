@@ -10,7 +10,9 @@
             <x-link-button href="{{ route('books.create') }}">+ New Book</x-link-button>
             @forelse ($books as $book)
                 <div class="bg-white p-6 overflow-hidden shadow-sm sm:rounded-lg">
-                    <h2 class="font-bold text-2xl text-indigo-600">{{ $book->title }}</h2>
+                    <h2 class="font-bold text-2xl text-indigo-600">
+                        <a href="{{ route('books.show', $book) }}" class="hover:underline">{{ $book->title }}</a>
+                    </h2>
                     <p class="mt-2">{{ Str::limit($book->description, 350, '...') }}</p>
                     <span class="block mt-4 text-sm opacity-70">{{ $book->updated_at->diffForHumans() }}</span>
                 </div>

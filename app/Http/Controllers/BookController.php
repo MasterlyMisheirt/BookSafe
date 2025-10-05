@@ -51,7 +51,10 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        if ($book->user_id !== Auth::id()) {
+            abort(403);
+        }
+        return view('books.show', ['book' => $book]);
     }
 
     /**
