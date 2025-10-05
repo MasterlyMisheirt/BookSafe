@@ -21,6 +21,7 @@
                     @error('description')
                     <div class="text-sm mt-1 text-red-500">{{ $message }}</div>
                     @enderror
+                    <input type="hidden" name="google_book_id" value="{{ $book->google_book_id ?? null }}">
                     <x-primary-button class="mt-6">Create Book</x-primary-button>
                 </form>
             </div>

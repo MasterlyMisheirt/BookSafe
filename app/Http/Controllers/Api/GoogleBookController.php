@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class GoogleBookController extends Controller
 {
@@ -44,6 +45,7 @@ class GoogleBookController extends Controller
         $book = new Book([
             'title' => $jsonBooks[0]['volumeInfo']['title'] ?? '',
             'description' => $jsonBooks[0]['volumeInfo']['description'] ?? '',
+            'google_book_id' => $jsonBooks[0]['id'] ?? Str::ulid()->toString()
         ]);
 
         return view('books.create', ['book' => $book]);

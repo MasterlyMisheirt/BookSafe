@@ -39,7 +39,7 @@ class BookController extends Controller
 
         $book = new Book([
             'user_id' => Auth::id(),
-            'google_book_id' => Str::uuid()->toString(),
+            'google_book_id' => $request->get('google_book_id') ?? Str::ulid()->toString(),
             'title' => $request->get('title'),
             'description' => $request->get('description')
         ]);
