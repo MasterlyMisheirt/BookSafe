@@ -24,6 +24,17 @@
                     <x-primary-button class="mt-6">Save Book</x-primary-button>
                 </form>
             </div>
+
+            <!-- New Google Books search section -->
+            <div class="bg-white p-6 overflow-hidden shadow-sm sm:rounded-lg max-w-2xl">
+                <h3 class="text-lg font-semibold mb-4">Search Google Books</h3>
+                <form action="{{ route('google.search') }}" id="google-search-form" class="flex space-x-2 mb-4">
+                    <x-text-input name="q" id="google-search" class="flex-1"
+                                  placeholder="Search for a book"></x-text-input>
+                    <x-primary-button id="google-search-btn">Search</x-primary-button>
+                </form>
+            </div>
+
         </div>
     </div>
 </x-app-layout>
