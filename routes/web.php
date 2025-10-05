@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\GoogleBookController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookGroupController;
 use App\Http\Controllers\ProfileController;
@@ -19,3 +20,6 @@ require __DIR__ . '/auth.php';
 
 Route::resource('books', BookController::class)->middleware('auth');
 Route::resource('book-groups', BookGroupController::class)->middleware('auth');
+
+//api
+Route::get('/google-search', [GoogleBookController::class, 'search'])->name('google.search');

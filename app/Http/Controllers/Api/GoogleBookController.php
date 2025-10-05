@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -10,10 +11,13 @@ class GoogleBookController extends Controller
 {
     public function search(Request $request)
     {
-        $query = $request->input('q');
 
-        if (!$query) {
-            return response()->json(['error' => 'Missing search query'], 400);
+        $query = $request->input('query');
+
+        if (empty($query)) {
+            return back()
+                ->withErrors(['query' => 'The search field is required.'])
+                ->withInput();
         }
 
         $response = Http::get('https://www.googleapis.com/books/v1/volumes', [
@@ -23,9 +27,25 @@ class GoogleBookController extends Controller
         ]);
 
         if ($response->failed()) {
-            return response()->json(['error' => 'Failed to fetch data'], 500);
-        } else {
-            return response()->json($response->json());
+            return back()
+                ->withInput()
+                ->withErrors(['query' => 'Failed to fetch data from Google Books']);
         }
+
+        $data = $response->json();
+        $jsonBooks = $data['items'] ?? [];
+
+        if (empty($jsonBooks)) {
+            return back()
+                ->withInput()
+                ->withErrors(['query' => 'No books found for your search.']);
+        }
+
+        $book = new Book([
+            'title' => $jsonBooks[0]['volumeInfo']['title'] ?? '',
+            'description' => $jsonBooks[0]['volumeInfo']['description'] ?? '',
+        ]);
+
+        return view('books.create', ['book' => $book]);
     }
 }
