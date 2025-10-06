@@ -45,7 +45,7 @@ class BookController extends Controller
         ]);
         $book->save();
 
-        return to_route('books.index');
+        return to_route('books.show', $book);
     }
 
     /**
@@ -56,6 +56,7 @@ class BookController extends Controller
         if ($book->user_id !== Auth::id()) {
             abort(403);
         }
+
         return view('books.show', ['book' => $book]);
     }
 
@@ -64,7 +65,11 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        if ($book->user_id !== Auth::id()) {
+            abort(403);
+        }
+
+        return view('books.edit', ['book' => $book]);
     }
 
     /**
@@ -72,7 +77,21 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        if ($book->user_id !== Auth::id()) {
+            abort(403);
+        }
+
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        $book->update([
+            'title' => $request->get('title'),
+            'description' => $request->get('description')
+        ]);
+
+        return to_route('books.show', $book);
     }
 
     /**
