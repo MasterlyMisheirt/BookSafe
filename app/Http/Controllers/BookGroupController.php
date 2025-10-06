@@ -13,17 +13,8 @@ class BookGroupController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::id();
-        $bookGroups = BookGroup::where('user_id', $user_id)->latest('updated_at')->paginate(7);
+        $bookGroups = Auth::user()->bookGroups()->latest('updated_at')->paginate(7);
         return view('book_groups.index')->with('bookGroups', $bookGroups);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('book_groups.create');
     }
 
     /**
@@ -35,13 +26,19 @@ class BookGroupController extends Controller
             'name' => 'required'
         ]);
 
-        $bookGroup = new BookGroup([
-            'user_id' => Auth::id(),
-            'name' => $request->get('name'),
+        $bookGroup = Auth::user()->bookGroups()->create([
+            'name' => $request->get('name')
         ]);
-        $bookGroup->save();
 
-        return to_route('book-groups.index');
+        return to_route('book-groups.show', $bookGroup);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('book_groups.create');
     }
 
     /**
@@ -49,7 +46,7 @@ class BookGroupController extends Controller
      */
     public function show(BookGroup $bookGroup)
     {
-        if ($bookGroup->user_id !== Auth::id()) {
+        if (!$bookGroup->user->is(Auth::user())) {
             abort(403);
         }
         return view('book_groups.show', ['bookGroup' => $bookGroup]);

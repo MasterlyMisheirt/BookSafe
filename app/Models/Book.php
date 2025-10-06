@@ -33,4 +33,10 @@ class Book extends Model
     {
         return 'google_book_id';
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+
+    }
 }

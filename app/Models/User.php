@@ -33,6 +33,16 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
+
+    public function bookGroups()
+    {
+        return $this->hasMany(BookGroup::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *
