@@ -91,7 +91,8 @@ class BookController extends Controller
             'description' => $request->get('description')
         ]);
 
-        return to_route('books.show', $book);
+        return to_route('books.show', $book)
+            ->with('success', 'Changes saved');
     }
 
     /**
@@ -105,6 +106,7 @@ class BookController extends Controller
 
         $book->delete();
 
-        return to_route('books.index');
+        return to_route('books.index')
+            ->with('success', 'Book deleted');
     }
 }
