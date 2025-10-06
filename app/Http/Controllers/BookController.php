@@ -99,6 +99,12 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        if ($book->user_id !== Auth::id()) {
+            abort(403);
+        }
+
+        $book->delete();
+
+        return to_route('books.index');
     }
 }
