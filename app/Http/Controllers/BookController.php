@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\BookGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -24,7 +25,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        $bookGroups = BookGroup::where('user_id', Auth::id())->get();
+        return view('books.create')->with('bookGroups', $bookGroups);
     }
 
     /**
@@ -41,7 +43,8 @@ class BookController extends Controller
             'user_id' => Auth::id(),
             'google_book_id' => Str::uuid()->toString(),
             'title' => $request->get('title'),
-            'description' => $request->get('description')
+            'description' => $request->get('description'),
+            'book_group_id' => $request->get('bookGroup_id')
         ]);
         $book->save();
 
@@ -69,7 +72,9 @@ class BookController extends Controller
             abort(403);
         }
 
-        return view('books.edit', ['book' => $book]);
+        $bookGroups = BookGroup::where('user_id', Auth::id())->get();
+
+        return view('books.edit', ['book' => $book, 'bookGroups' => $bookGroups]);
     }
 
     /**
@@ -88,7 +93,8 @@ class BookController extends Controller
 
         $book->update([
             'title' => $request->get('title'),
-            'description' => $request->get('description')
+            'description' => $request->get('description'),
+            'book_group_id' => $request->get('bookGroup_id')
         ]);
 
         return to_route('books.show', $book)

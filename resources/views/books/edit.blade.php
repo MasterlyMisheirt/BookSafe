@@ -22,6 +22,18 @@
                     @error('description')
                     <div class="text-sm mt-1 text-red-500">{{ $message }}</div>
                     @enderror
+                    <select name="bookGroup_id"
+                            class="w-full mt-6 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                        <option value="">-- Select Book Group --</option>
+                        @foreach($bookGroups as $bookGroup)
+                            <option value="{{ $bookGroup->id }}"
+                                    @if($bookGroup->id === $book->book_group_id)
+                                        selected
+                                @endif
+                            >{{ $bookGroup->name }}</option>
+
+                        @endforeach
+                    </select>
                     <x-primary-button class="mt-6">Save Book</x-primary-button>
                 </form>
             </div>
