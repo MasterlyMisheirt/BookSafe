@@ -27,7 +27,7 @@
             </div>
             <div class="bg-white p-6 overflow-hidden shadow-sm sm:rounded-lg">
                 <h2 class="font-bold text-4xl text-indigo-600">
-                    {{ $book   ->title }}
+                    {{ $book->title }}
                 </h2>
                 <p class="mt-2 whitespace-pre-wrap">{{ $book->description }}</p>
             </div>

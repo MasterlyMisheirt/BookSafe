@@ -19,3 +19,5 @@ require __DIR__ . '/auth.php';
 
 Route::resource('books', BookController::class)->middleware('auth');
 Route::resource('book-groups', BookGroupController::class)->middleware('auth');
+Route::delete('book-groups', [BookGroupController::class, 'add'])->name('book-groups.add');
+

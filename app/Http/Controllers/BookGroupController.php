@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\BookGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,7 +50,8 @@ class BookGroupController extends Controller
         if (!$bookGroup->user->is(Auth::user())) {
             abort(403);
         }
-        return view('book_groups.show', ['bookGroup' => $bookGroup]);
+        $books = $bookGroup->books()->latest('updated_at')->paginate(5);
+        return view('book_groups.show', ['bookGroup' => $bookGroup, 'books' => $books]);
     }
 
     /**
@@ -72,6 +74,11 @@ class BookGroupController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(BookGroup $bookGroup)
+    {
+        //
+    }
+
+    public function add(Book $book)
     {
         //
     }
