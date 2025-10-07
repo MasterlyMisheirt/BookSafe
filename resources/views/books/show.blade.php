@@ -8,9 +8,11 @@
         <div class="max-w-7xl mx-a  uto sm:px-6 lg:px-8 space-y-6">
             <x-alert-success>{{ session('success') }}</x-alert-success>
             @if(isset($book->bookGroup))
-                <span class="px-2 py-1  border border-indigo-400 bg-indigo-100 rounded font-semibold text-sm">
-                    <a href="{{ route('book-groups.show', $book->bookGroup) }}">{{ $book->bookGroup->name }}</a>
-            </span>
+                <a href="{{ route('book-groups.show', $book->bookGroup) }}">
+                    <span class="px-2 py-1  border border-indigo-400 bg-indigo-100 rounded font-semibold text-sm">
+                        {{ $book->bookGroup->name }}
+                    </span>
+                </a>
             @endif
             <div class="flex gap-6">
                 <p class="opacity-70"><strong>Created:</strong> {{ $book->created_at->diffForHumans() }}</p>

@@ -24,7 +24,7 @@ class BookGroupController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required'
+            'name' => 'required|unique:book_groups,name'
         ]);
 
         $bookGroup = Auth::user()->bookGroups()->create([
@@ -59,7 +59,11 @@ class BookGroupController extends Controller
      */
     public function edit(BookGroup $bookGroup)
     {
-        //
+        if (!$bookGroup->user->is(Auth::user())) {
+            abort(403);
+        }
+
+        return view('book_groups.edit', ['bookGroup' => $bookGroup]);
     }
 
     /**
@@ -67,7 +71,20 @@ class BookGroupController extends Controller
      */
     public function update(Request $request, BookGroup $bookGroup)
     {
-        //
+        if (!$bookGroup->user->is(Auth::user())) {
+            abort(403);
+        }
+
+        $request->validate([
+            'name' => 'required|unique:book_groups,name'
+        ]);
+
+        $bookGroup->update([
+            'name' => $request->get('name')
+        ]);
+
+        return to_route('book-groups.show', $bookGroup)
+            ->with('success', 'Changes saved');
     }
 
     /**

@@ -10,6 +10,7 @@
             <div class="flex gap-6">
                 <p class="opacity-70"><strong>Created:</strong> {{ $bookGroup->created_at->diffForHumans() }}</p>
                 <p class="opacity-70"><strong>Last changed:</strong> {{ $bookGroup->updated_at->diffForHumans() }}</p>
+                <x-link-button href="{{ route('book-groups.edit', $bookGroup) }}" class="ml-auto">Edit</x-link-button>
             </div>
             <x-alert-success>{{ session('success') }}</x-alert-success>
             <div class="bg-white p-6 overflow-hidden shadow-sm sm:rounded-lg">

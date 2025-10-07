@@ -8,14 +8,15 @@
     <div class="py-12">
         <div class="max-w-7xl mx-a  uto sm:px-6 lg:px-8 space-y-6">
             <div class="bg-white p-6 overflow-hidden shadow-sm sm:rounded-lg max-w-2xl">
-                <form action="{{ route('book-groups.store') }}" method="post">
+                <form action="{{ route('book-groups.update', $bookGroup) }}" method="post">
+                    @method('put')
                     @csrf
                     <x-text-input name="name" class="w-full" placeholder="Book group name"
-                                  value="{{ @old('name') }}"></x-text-input>
+                                  value="{{ @old('name', $bookGroup->name) }}"></x-text-input>
                     @error('name')
                     <div class="text-sm mt-1 text-red-500">{{ $message }}</div>
                     @enderror
-                    <x-primary-button class="mt-6">Add book group</x-primary-button>
+                    <x-primary-button class="mt-6">Save book group</x-primary-button>
                 </form>
             </div>
         </div>
