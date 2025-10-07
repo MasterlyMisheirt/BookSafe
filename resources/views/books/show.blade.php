@@ -9,7 +9,7 @@
             <x-alert-success>{{ session('success') }}</x-alert-success>
             @if(isset($book->bookGroup))
                 <span class="px-2 py-1  border border-indigo-400 bg-indigo-100 rounded font-semibold text-sm">
-                {{ $book->bookGroup->name }}
+                    <a href="{{ route('book-groups.show', $book->bookGroup) }}">{{ $book->bookGroup->name }}</a>
             </span>
             @endif
             <div class="flex gap-6">
