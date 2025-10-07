@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\BookGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class BookGroupController extends Controller
 {
@@ -28,7 +29,8 @@ class BookGroupController extends Controller
         ]);
 
         $bookGroup = Auth::user()->bookGroups()->create([
-            'name' => $request->get('name')
+            'name' => $request->get('name'),
+            'slug' => Str::slug($request->get('name'))
         ]);
 
         return to_route('book-groups.show', $bookGroup);
@@ -80,7 +82,8 @@ class BookGroupController extends Controller
         ]);
 
         $bookGroup->update([
-            'name' => $request->get('name')
+            'name' => $request->get('name'),
+            'slug' => Str::slug($request->get('name'))
         ]);
 
         return to_route('book-groups.show', $bookGroup)

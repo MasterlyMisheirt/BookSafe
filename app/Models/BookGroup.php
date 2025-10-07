@@ -11,8 +11,14 @@ class BookGroup extends Model
 
     protected $fillable = [
         'name',
+        'slug',
         'user_id',
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function user()
     {
