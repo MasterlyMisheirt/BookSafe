@@ -11,6 +11,14 @@
                 <p class="opacity-70"><strong>Created:</strong> {{ $bookGroup->created_at->diffForHumans() }}</p>
                 <p class="opacity-70"><strong>Last changed:</strong> {{ $bookGroup->updated_at->diffForHumans() }}</p>
                 <x-link-button href="{{ route('book-groups.edit', $bookGroup) }}" class="ml-auto">Edit</x-link-button>
+                <form action="{{ route('book-groups.destroy', $bookGroup) }}" method="post">
+                    @method('delete')
+                    @csrf
+                    <x-primary-button class="bg-red-500 hover:bg-red-600 focus:bg-red-600"
+                                      onclick="return confirm('Are you sure you want to delete this book group?')">
+                        Delete Group
+                    </x-primary-button>
+                </form>
             </div>
             <x-alert-success>{{ session('success') }}</x-alert-success>
             <div class="bg-white p-6 overflow-hidden shadow-sm sm:rounded-lg">

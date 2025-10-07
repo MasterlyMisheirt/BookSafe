@@ -95,7 +95,14 @@ class BookGroupController extends Controller
      */
     public function destroy(BookGroup $bookGroup)
     {
-        //
+        if (!$bookGroup->user->is(Auth::user())) {
+            abort(403);
+        }
+
+        $bookGroup->delete();
+
+        return to_route('book-groups.index')
+            ->with('success', 'Book group deleted');
     }
 
     public function add(Book $book)

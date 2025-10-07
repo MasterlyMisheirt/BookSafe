@@ -7,6 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-a  uto sm:px-6 lg:px-8 space-y-6">
+            <x-alert-success>{{ session('success') }}</x-alert-success>
             <x-link-button href="{{ route('book-groups.create') }}">+ New Book Group</x-link-button>
             @forelse ($bookGroups as $bookGroup)
                 <div class="bg-white p-6 overflow-hidden shadow-sm sm:rounded-lg">
