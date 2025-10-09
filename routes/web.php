@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\GoogleBookController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookGroupController;
 use App\Http\Controllers\ProfileController;
@@ -21,3 +22,5 @@ Route::resource('books', BookController::class)->middleware('auth');
 Route::resource('book-groups', BookGroupController::class)->middleware('auth');
 Route::delete('book-groups', [BookGroupController::class, 'add'])->name('book-groups.add');
 
+//api
+Route::get('/google-search', [GoogleBookController::class, 'search'])->name('google.search');
