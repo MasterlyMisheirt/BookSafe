@@ -7,24 +7,33 @@ use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Str;
 
 class GoogleBookController extends Controller
 {
     public function search(Request $request)
     {
 
-        $query = $request->input('query');
+        $request->validate([
+            'query' => 'required|string',
+            'include-author' => 'nullable|boolean',
+            'author' => 'nullable|string'
+        ]);
 
-        if (empty($query)) {
+        $query = $request->input('query');
+        $includeAuthor = $request->has('include-author');
+        $author = $request->input('author');
+
+        if ($includeAuthor && empty($author)) {
             return back()
-                ->withErrors(['query' => 'The search field is required.'])
+                ->withErrors(['query' => 'The author field is required.'])
                 ->withInput();
+        } else if (!$includeAuthor) {
+            $author = null;
         }
 
         $response = Http::get('https://www.googleapis.com/books/v1/volumes', [
-            'q' => $query,
-            'maxResults' => 10,
+            'q' => $author ? "{$query} inauthor:{$author}" : $query,
+            'maxResults' => 1,
             'key' => config('services.google.books_key'),
         ]);
 
