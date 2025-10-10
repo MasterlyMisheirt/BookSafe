@@ -1,82 +1,40 @@
-<<<<<<< HEAD
 # BookSafe 📙🔐
-**BookSafe** is a personal book tracker web service that allows users to sign up, record, and track their reading progress. You can organize books into custom categories, whether it's a set of history books for an exam or a personal reading list.
 
-## Features
-- Sign up and manage your personal book library
-- Categorize books into custom groups (e.g., exam prep, reading lists)
-- Automatically retrieve book details (titles, authors, descriptions) from the Google Books API
+> ⚠️ **Note:** This project is in early development; some features are incomplete or missing.
+
+**BookSafe** is a personal book management web service that allows users to sign up, record, and track their reading
+progress. Users can organise books into custom categories, such as a set of history books for an exam or a personal
+reading list.
+
+## Current Features
+
+- User authentication (login/register)
+- Add, edit, and delete books and book groups
+- Organise books into book groups
+- Automatically retrieve book details (title, author, description) from the Google Books API
+    - Retrieves the first result and populates the fields
+    - Users can search by author and title to narrow results
+
+## Features Up Next
+
+- Search filters (e.g., by category, alphabetical order, book creation date)
+- Distinct read/reading/to-read categories
+- More customisation for books and book groups
+- Allow books to belong to multiple book groups
+- UI/UX redesign
+- Mobile-friendly layout
 
 ## Tech Stack
-- **PHP Laravel**: Backend framework
-- **Laravel Breeze**: Authentication system for secure user sign-up and login
-- **TypeScript**: Dynamic and interactive UI elements for the website
-- **Google Books API**: Retrieve book information without manual input
 
-## How It Works
-**BookSafe** connects with the **Google Books API** to automatically pull in necessary book details. You don't need to manually input book titles, authors, or descriptions. Simply search for a book, and **BookSafe** will handle the rest.
+- **PHP Laravel**: Backend framework using Blade components for cleaner structure
+- **Laravel Breeze**: Handles authentication for secure user sign-up and login
+- **Tailwind**: Speeds up development and simplifies CSS styling
+- **Alpine**: Enables convenient client-side behaviour directly in HTML markup
+- **Google Books API**: Fetches book details automatically without manual entry
 
----
-=======
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Questions & Answers
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### What is the Google Books API used for?
 
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
->>>>>>> f775bbe (Fresh install laravel breeze with SQLite)
+**BookSafe** integrates with the API to automatically retrieve book details via a simple UI. Users can enter a book
+title or include an author to refine the search, and the fields will populate with the first matching result.
