@@ -1,7 +1,7 @@
 import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController';
-import HeadingSmall from '@/components/heading-small';
-import InputError from '@/components/input-error';
-import { Button } from '@/components/ui/button';
+import HeadingSmall from '@/old_components/heading-small';
+import InputError from '@/old_components/input-error';
+import { Button } from '@/old_components/ui/button';
 import {
     Dialog,
     DialogClose,
@@ -10,9 +10,9 @@ import {
     DialogFooter,
     DialogTitle,
     DialogTrigger,
-} from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+} from '@/old_components/ui/dialog';
+import { Input } from '@/old_components/ui/input';
+import { Label } from '@/old_components/ui/label';
 import { Form } from '@inertiajs/react';
 import { useRef } from 'react';
 

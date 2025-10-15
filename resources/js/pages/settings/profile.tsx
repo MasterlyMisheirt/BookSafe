@@ -4,14 +4,14 @@ import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Transition } from '@headlessui/react';
 import { Form, Head, Link, usePage } from '@inertiajs/react';
 
-import DeleteUser from '@/components/delete-user';
-import HeadingSmall from '@/components/heading-small';
-import InputError from '@/components/input-error';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/app-layout';
 import SettingsLayout from '@/layouts/settings/layout';
+import DeleteUser from '@/old_components/delete-user';
+import HeadingSmall from '@/old_components/heading-small';
+import InputError from '@/old_components/input-error';
+import { Button } from '@/old_components/ui/button';
+import { Input } from '@/old_components/ui/input';
+import { Label } from '@/old_components/ui/label';
 import { edit } from '@/routes/profile';
 
 const breadcrumbs: BreadcrumbItem[] = [

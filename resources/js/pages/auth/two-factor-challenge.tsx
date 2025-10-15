@@ -1,13 +1,13 @@
-import InputError from '@/components/input-error';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { OTP_MAX_LENGTH } from '@/hooks_old/use-two-factor-auth';
+import AuthLayout from '@/layouts/auth-layout';
+import InputError from '@/old_components/input-error';
+import { Button } from '@/old_components/ui/button';
+import { Input } from '@/old_components/ui/input';
 import {
     InputOTP,
     InputOTPGroup,
     InputOTPSlot,
-} from '@/components/ui/input-otp';
-import { OTP_MAX_LENGTH } from '@/hooks/use-two-factor-auth';
-import AuthLayout from '@/layouts/auth-layout';
+} from '@/old_components/ui/input-otp';
 import { store } from '@/routes/two-factor/login';
 import { Form, Head } from '@inertiajs/react';
 import { REGEXP_ONLY_DIGITS } from 'input-otp';

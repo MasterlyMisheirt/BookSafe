@@ -2,13 +2,13 @@ import RegisteredUserController from '@/actions/App/Http/Controllers/Auth/Regist
 import { login } from '@/routes';
 import { Form, Head } from '@inertiajs/react';
 
-import InputError from '@/components/input-error';
-import TextLink from '@/components/text-link';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Spinner } from '@/components/ui/spinner';
 import AuthLayout from '@/layouts/auth-layout';
+import InputError from '@/old_components/input-error';
+import TextLink from '@/old_components/text-link';
+import { Button } from '@/old_components/ui/button';
+import { Input } from '@/old_components/ui/input';
+import { Label } from '@/old_components/ui/label';
+import { Spinner } from '@/old_components/ui/spinner';
 
 export default function Register() {
     return (

@@ -1,4 +1,4 @@
-import { Card } from '@/components/ui/card';
+import { Card } from '@/old_components/ui/card';
 import {
     BookMarked,
     BookOpen,
@@ -63,7 +63,7 @@ export function LandingFeatures() {
 
                 <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {features.map((feature, index) => (
-                        <Card
+                        <Card data-aos="fade-in"
                             key={index}
                             className="bg-background p-6 transition-shadow hover:shadow-lg"
                         >

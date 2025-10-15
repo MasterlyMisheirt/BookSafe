@@ -1,19 +1,19 @@
-import InputError from '@/components/input-error';
-import { Button } from '@/components/ui/button';
+import { useClipboard } from '@/hooks_old/use-clipboard';
+import { OTP_MAX_LENGTH } from '@/hooks_old/use-two-factor-auth';
+import InputError from '@/old_components/input-error';
+import { Button } from '@/old_components/ui/button';
 import {
     Dialog,
     DialogContent,
     DialogDescription,
     DialogHeader,
     DialogTitle,
-} from '@/components/ui/dialog';
+} from '@/old_components/ui/dialog';
 import {
     InputOTP,
     InputOTPGroup,
     InputOTPSlot,
-} from '@/components/ui/input-otp';
-import { useClipboard } from '@/hooks/use-clipboard';
-import { OTP_MAX_LENGTH } from '@/hooks/use-two-factor-auth';
+} from '@/old_components/ui/input-otp';
 import { confirm } from '@/routes/two-factor';
 import { Form } from '@inertiajs/react';
 import { REGEXP_ONLY_DIGITS } from 'input-otp';

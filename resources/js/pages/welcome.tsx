@@ -1,10 +1,10 @@
-import { LandingHeader } from '../components/landing-header';
-import { LandingHero } from '../components/landing-hero';
-import { LandingFeatures } from '../components/landing-features';
-import { LandingCTA } from '../components/landing-cta';
 import { dashboard, login, register } from '@/routes';
 import { type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
+import { LandingCTA } from '../components/landing-cta';
+import { LandingFeatures } from '../components/landing-features';
+import { LandingHeader } from '../components/landing-header';
+import { LandingHero } from '../components/landing-hero';
 
 export default function Welcome() {
     const { auth } = usePage<SharedData>().props;

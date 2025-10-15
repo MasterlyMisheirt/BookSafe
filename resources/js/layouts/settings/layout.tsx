@@ -1,7 +1,7 @@
-import Heading from '@/components/heading';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
+import Heading from '@/old_components/heading';
+import { Button } from '@/old_components/ui/button';
+import { Separator } from '@/old_components/ui/separator';
 import { edit as editAppearance } from '@/routes/appearance';
 import { edit as editPassword } from '@/routes/password';
 import { edit } from '@/routes/profile';
