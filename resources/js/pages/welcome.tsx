@@ -1,5 +1,7 @@
-import { Header } from '@/components/header';
-import { Hero } from '@/components/hero';
+import { LandingHeader } from '../components/landing-header';
+import { LandingHero } from '../components/landing-hero';
+import { LandingFeatures } from '../components/landing-features';
+import { LandingCTA } from '../components/landing-cta';
 import { dashboard, login, register } from '@/routes';
 import { type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
@@ -10,9 +12,11 @@ export default function Welcome() {
     return (
         <>
             <div className="min-h-screen">
-                <Header />
+                <LandingHeader />
                 <main>
-                    <Hero />
+                    <LandingHero />
+                    <LandingFeatures />
+                    <LandingCTA />
                 </main>
             </div>
             <Head title="Welcome">
