@@ -63,9 +63,10 @@ export function LandingFeatures() {
 
                 <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {features.map((feature, index) => (
-                        <Card data-aos="fade-in"
+                        <Card
+                            data-aos="fade-in"
                             key={index}
-                            className="bg-background p-6 transition-shadow hover:shadow-lg"
+                            className="bg-background p-6 transition-all duration-500 ease-in-out hover:-translate-y-2 hover:shadow-lg"
                         >
                             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
                                 <feature.icon className="h-6 w-6 text-accent" />
