@@ -20,7 +20,7 @@ export function LandingHeader() {
                         </div>
                         <nav className="flex items-center gap-3">
                             {auth.user ? (
-                                <Link href={dashboard()}>
+                                <Link href={dashboard()} prefetch>
                                     <Button
                                         variant="outline"
                                         size="sm"
@@ -31,7 +31,7 @@ export function LandingHeader() {
                                 </Link>
                             ) : (
                                 <>
-                                    <Link href={login()}>
+                                    <Link href={login()} prefetch>
                                         <Button
                                             variant="ghost"
                                             size="sm"
@@ -40,7 +40,7 @@ export function LandingHeader() {
                                             Sign In
                                         </Button>
                                     </Link>
-                                    <Link href={register()}>
+                                    <Link href={register()} prefetch>
                                         <Button
                                             variant="default"
                                             size="sm"

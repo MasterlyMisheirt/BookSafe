@@ -19,7 +19,7 @@ export function LandingCTA() {
                         their progress with BookSafe. Completely free and
                         open-source.
                     </p>
-                    <Link href={register()}>
+                    <Link href={register()} prefetch>
                         <Button
                             size="lg"
                             className="cursor-pointer px-8 text-base"
