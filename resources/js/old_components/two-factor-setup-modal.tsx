@@ -1,6 +1,6 @@
+import InputError from '@/components/input-error';
 import { useClipboard } from '@/hooks_old/use-clipboard';
 import { OTP_MAX_LENGTH } from '@/hooks_old/use-two-factor-auth';
-import InputError from '@/old_components/input-error';
 import { Button } from '@/old_components/ui/button';
 import {
     Dialog,

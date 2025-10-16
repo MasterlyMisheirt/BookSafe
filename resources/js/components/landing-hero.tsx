@@ -6,7 +6,10 @@ export function LandingHero() {
         <section className="relative overflow-hidden bg-gradient-to-b from-background to-muted/20 py-20 sm:py-32">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-3xl text-center">
-                    <div data-aos="fade-down" className="mb-8 inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-2 text-sm font-medium text-accent">
+                    <div
+                        data-aos="fade-down"
+                        className="mb-8 inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-2 text-sm font-medium text-accent"
+                    >
                         <Github className="h-4 w-4" />
                         Free & Open Source
                     </div>
@@ -23,14 +26,17 @@ export function LandingHero() {
                         </p>
 
                         <nav className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                            <Button size="lg" className="px-8 text-base">
+                            <Button
+                                size="lg"
+                                className="px-8 text-base disabled:cursor-not-allowed"
+                            >
                                 <BookOpen className="mr-2 h-5 w-5" />
                                 Start Organizing
                             </Button>
                             <Button
                                 size="lg"
                                 variant="outline"
-                                className="bg-transparent px-8 text-base"
+                                className="bg-transparent px-8 text-base disabled:cursor-not-allowed"
                             >
                                 Learn More
                             </Button>

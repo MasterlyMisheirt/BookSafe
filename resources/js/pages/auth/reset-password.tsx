@@ -1,8 +1,8 @@
 import NewPasswordController from '@/actions/App/Http/Controllers/Auth/NewPasswordController';
 import { Form, Head } from '@inertiajs/react';
 
+import InputError from '@/components/input-error';
 import AuthLayout from '@/layouts/auth-layout';
-import InputError from '@/old_components/input-error';
 import { Button } from '@/old_components/ui/button';
 import { Input } from '@/old_components/ui/input';
 import { Label } from '@/old_components/ui/label';

@@ -11,7 +11,7 @@ export function Header() {
                   <div className="flex items-center gap-2">
                       <BookOpen className="h-6 w-6 text-accent" />
                       <span className="font-serif text-xl font-semibold text-foreground">
-                          Bookshelf
+                          BookSafe
                       </span>
                   </div>
 

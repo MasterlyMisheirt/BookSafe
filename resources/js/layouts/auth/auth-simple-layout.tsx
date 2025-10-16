@@ -1,6 +1,6 @@
-import AppLogoIcon from '@/old_components/app-logo-icon';
 import { home } from '@/routes';
 import { Link } from '@inertiajs/react';
+import { BookOpen } from 'lucide-react';
 import { type PropsWithChildren } from 'react';
 
 interface AuthLayoutProps {
@@ -21,17 +21,18 @@ export default function AuthSimpleLayout({
                     <div className="flex flex-col items-center gap-4">
                         <Link
                             href={home()}
-                            className="flex flex-col items-center gap-2 font-medium"
+                            className="mb-6 inline-flex items-center gap-2"
                         >
-                            <div className="mb-1 flex h-9 w-9 items-center justify-center rounded-md">
-                                <AppLogoIcon className="size-9 fill-current text-[var(--foreground)] dark:text-white" />
-                            </div>
-                            <span className="sr-only">{title}</span>
+                            <BookOpen className="h-8 w-8 text-primary" />
+                            <span className="font-serif text-2xl font-bold text-foreground">
+                                BookSafe
+                            </span>
                         </Link>
-
                         <div className="space-y-2 text-center">
-                            <h1 className="text-xl font-medium">{title}</h1>
-                            <p className="text-center text-sm text-muted-foreground">
+                            <h1 className="font-serif text-3xl font-bold text-foreground">
+                                {title}
+                            </h1>
+                            <p className="mt-2 text-muted-foreground">
                                 {description}
                             </p>
                         </div>

@@ -1,12 +1,12 @@
 import AuthenticatedSessionController from '@/actions/App/Http/Controllers/Auth/AuthenticatedSessionController';
+import InputError from '@/components/input-error';
+import TextLink from '@/components/text-link';
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Spinner } from '@/components/ui/spinner';
 import AuthLayout from '@/layouts/auth-layout';
-import InputError from '@/old_components/input-error';
-import TextLink from '@/old_components/text-link';
-import { Button } from '@/old_components/ui/button';
-import { Checkbox } from '@/old_components/ui/checkbox';
-import { Input } from '@/old_components/ui/input';
-import { Label } from '@/old_components/ui/label';
-import { Spinner } from '@/old_components/ui/spinner';
 import { register } from '@/routes';
 import { request } from '@/routes/password';
 import { Form, Head } from '@inertiajs/react';
@@ -19,8 +19,8 @@ interface LoginProps {
 export default function Login({ status, canResetPassword }: LoginProps) {
     return (
         <AuthLayout
-            title="Log in to your account"
-            description="Enter your email and password below to log in"
+            title="Welcome back"
+            description="Sign in to access your reading lists"
         >
             <Head title="Log in" />
 

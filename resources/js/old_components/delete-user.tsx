@@ -1,6 +1,6 @@
 import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController';
+import InputError from '@/components/input-error';
 import HeadingSmall from '@/old_components/heading-small';
-import InputError from '@/old_components/input-error';
 import { Button } from '@/old_components/ui/button';
 import {
     Dialog,
