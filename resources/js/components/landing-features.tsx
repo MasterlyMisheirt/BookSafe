@@ -1,50 +1,50 @@
-import { Card } from '@/old_components/ui/card';
+import { Card } from '@/components/ui/card';
 import {
     BookMarked,
-    BookOpen,
     Globe,
-    Library,
-    Search,
+    LayoutPanelLeft,
+    Route,
+    SearchCheck,
     Zap,
 } from 'lucide-react';
 
 export function LandingFeatures() {
     const features = [
         {
-            icon: Search,
+            icon: SearchCheck,
             title: 'Search Google Books',
             description:
-                "Find any book instantly using Google Books' comprehensive database. Search by title, author, or ISBN.",
-        },
-        {
-            icon: BookOpen,
-            title: 'Track Currently Reading',
-            description:
-                "Keep your active reads organized in one place. Never forget which book you're in the middle of.",
+                'Find your book using the extensive library of Google Books. Search by title, author, or ISBN.',
         },
         {
             icon: BookMarked,
-            title: 'Mark as Read',
+            title: 'Track Currently Reading',
             description:
-                "Build your personal reading history. Look back on everything you've accomplished.",
+                "Keep your active reads organised in one place. Never forget which book you're in the middle of.",
         },
         {
-            icon: Library,
-            title: 'Want to Read List',
+            icon: Route,
+            title: 'Reading Journey',
             description:
-                "Save books for later and access your wishlist anywhere, perfect when you're on the go or travelling.",
+                "Track what you've read and plan what to read next. Reflect on your progress and future goals.",
         },
         {
             icon: Globe,
-            title: 'Access Anywhere',
+            title: 'Access Your Lists Anywhere',
             description:
-                'Works on desktop, tablet, and mobile. Your reading lists follow you wherever you go.',
+                "Save books to your wishlist and access it on any device. Perfect when you're travelling or on the go.",
         },
         {
             icon: Zap,
             title: 'Fast & Convenient',
             description:
                 'Add books manually or let Google Books do it for you with instant titles, covers and details.',
+        },
+        {
+            icon: LayoutPanelLeft,
+            title: 'Simple & Minimalist',
+            description:
+                'No clutter, no overwhelming features. Just the essentials you need to organise your reading life.',
         },
     ];
 
