@@ -5,8 +5,6 @@ import { Link, usePage } from '@inertiajs/react';
 import { BookOpen } from 'lucide-react';
 
 export function LandingHeader() {
-    const { auth } = usePage<SharedData>().props;
-
     return (
         <>
             <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -19,38 +17,24 @@ export function LandingHeader() {
                             </span>
                         </div>
                         <nav className="flex items-center gap-3">
-                            {auth.user ? (
-                                <Link href={dashboard()} prefetch>
-                                    <Button
-                                        variant="outline"
-                                        size="sm"
-                                        className="cursor-pointer"
-                                    >
-                                        Dashboard
-                                    </Button>
-                                </Link>
-                            ) : (
-                                <>
-                                    <Link href={login()} prefetch>
-                                        <Button
-                                            variant="ghost"
-                                            size="sm"
-                                            className="cursor-pointer"
-                                        >
-                                            Sign In
-                                        </Button>
-                                    </Link>
-                                    <Link href={register()} prefetch>
-                                        <Button
-                                            variant="default"
-                                            size="sm"
-                                            className="cursor-pointer"
-                                        >
-                                            Get Started
-                                        </Button>
-                                    </Link>
-                                </>
-                            )}
+                            <Link href={login()} prefetch>
+                                <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    className="cursor-pointer"
+                                >
+                                    Sign In
+                                </Button>
+                            </Link>
+                            <Link href={register()} prefetch>
+                                <Button
+                                    variant="default"
+                                    size="sm"
+                                    className="cursor-pointer"
+                                >
+                                    Get Started
+                                </Button>
+                            </Link>
                         </nav>
                     </div>
                 </div>
