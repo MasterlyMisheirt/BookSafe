@@ -1,7 +1,6 @@
 import { Button } from '@/old_components/ui/button';
-import { dashboard, login, register } from '@/routes';
-import { type SharedData } from '@/types';
-import { Link, usePage } from '@inertiajs/react';
+import { login, register } from '@/routes';
+import { Link } from '@inertiajs/react';
 import { BookOpen } from 'lucide-react';
 
 export function LandingHeader() {

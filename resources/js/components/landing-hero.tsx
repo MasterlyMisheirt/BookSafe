@@ -1,4 +1,6 @@
 import { Button } from '@/old_components/ui/button';
+import { login } from '@/routes';
+import { Link } from '@inertiajs/react';
 import { BookOpen, Github } from 'lucide-react';
 
 export function LandingHero() {
@@ -26,13 +28,15 @@ export function LandingHero() {
                         </p>
 
                         <nav className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                            <Button
-                                size="lg"
-                                className="px-8 text-base disabled:cursor-not-allowed"
-                            >
-                                <BookOpen className="mr-2 h-5 w-5" />
-                                Start Organizing
-                            </Button>
+                            <Link href={login()} prefetch>
+                                <Button
+                                    size="lg"
+                                    className="px-8 text-base cursor-pointer"
+                                >
+                                    <BookOpen className="mr-2 h-5 w-5" />
+                                    Start Organising
+                                </Button>
+                            </Link>
                             <Button
                                 size="lg"
                                 variant="outline"
