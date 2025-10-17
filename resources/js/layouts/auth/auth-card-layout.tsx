@@ -1,7 +1,4 @@
-import {
-    Card,
-    CardContent
-} from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { home } from '@/routes';
 import { Link } from '@inertiajs/react';
 import { BookOpen } from 'lucide-react';

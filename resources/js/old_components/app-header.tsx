@@ -36,7 +36,7 @@ import { UserMenuContent } from '@/old_components/user-menu-content';
 import { dashboard } from '@/routes';
 import { type BreadcrumbItem, type NavItem, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { BookOpen, ChartBar, Folder, LayoutGrid, Menu, Search } from 'lucide-react';
+import { CirclePlus, LayoutPanelTop, Menu, Search, Settings2 } from 'lucide-react';
 import AppLogo from './app-logo';
 import AppLogoIcon from './app-logo-icon';
 
@@ -44,25 +44,20 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
         href: dashboard(),
-        icon: LayoutGrid,
+        icon: LayoutPanelTop,
     },
     {
-        title: 'Stats',
+        title: 'Add Book',
         href: dashboard(),
-        icon: ChartBar,
+        icon: CirclePlus,
     },
 ];
 
 const rightNavItems: NavItem[] = [
     {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
-        icon: Folder,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
-        icon: BookOpen,
+        title: 'Settings',
+        href: dashboard(),
+        icon: Settings2,
     },
 ];
 
@@ -115,7 +110,10 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                                     {item.icon && (
                                                         <Icon
                                                             iconNode={item.icon}
-                                                            className="h-5 w-5"
+                                                            className={cn(
+                                                                "h-5 w-5",
+                                                                item.title === 'Dashboard' && "rotate-180"
+                                                            )}
                                                         />
                                                     )}
                                                     <span>{item.title}</span>
@@ -186,7 +184,10 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                             {item.icon && (
                                                 <Icon
                                                     iconNode={item.icon}
-                                                    className="mr-2 h-4 w-4"
+                                                    className={cn(
+                                                        "mr-2 h-4 w-4",
+                                                        item.title === 'Dashboard' && "rotate-180"
+                                                    )}
                                                 />
                                             )}
                                             {item.title}

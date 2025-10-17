@@ -1,7 +1,7 @@
+import AppLogo from '@/old_components/app-logo';
 import { Button } from '@/old_components/ui/button';
-import { login, register } from '@/routes';
+import { dashboard, login, register } from '@/routes';
 import { Link } from '@inertiajs/react';
-import { BookOpen } from 'lucide-react';
 
 export function LandingHeader() {
     return (
@@ -9,12 +9,14 @@ export function LandingHeader() {
             <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex h-16 items-center justify-between">
-                        <div className="flex items-center gap-2">
-                            <BookOpen className="h-6 w-6 text-accent" />
-                            <span className="font-serif text-xl font-semibold text-foreground">
-                                BookSafe
-                            </span>
-                        </div>
+                        <Link
+                            href={dashboard()}
+                            prefetch
+                            className="flex items-center space-x-2"
+                        >
+                            <AppLogo />
+                        </Link>
+
                         <nav className="flex items-center gap-3">
                             <Link href={login()} prefetch>
                                 <Button
