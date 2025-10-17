@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Clock, Plus } from "lucide-react"
+import { Clock, PlusCircle } from "lucide-react"
 import { Link } from '@inertiajs/react';
 
 export function RecentBooks() {
@@ -13,7 +13,7 @@ export function RecentBooks() {
         </div>
         <Link href="/add-book">
           <Button variant="outline" size="sm" className="border-border text-foreground hover:bg-muted bg-transparent">
-            <Plus className="h-4 w-4 mr-2" />
+            <PlusCircle className="h-4 w-4" />
             Add Book
           </Button>
         </Link>
@@ -30,7 +30,7 @@ export function RecentBooks() {
           </p>
           <Link href="/add-book">
             <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              <Plus className="h-4 w-4 mr-2" />
+              <PlusCircle className="h-4 w-4" />
               Add Your First Book
             </Button>
           </Link>
