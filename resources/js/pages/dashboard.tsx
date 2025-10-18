@@ -1,7 +1,6 @@
 import { DashboardStats } from '@/components/dashboard/dashboard-stats';
 import { RecentBooks } from '@/components/dashboard/recent-books';
 import AppLayout from '@/layouts/app-layout';
-import { PlaceholderPattern } from '@/old_components/ui/placeholder-pattern';
 import { dashboard } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';

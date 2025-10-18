@@ -40,6 +40,8 @@ import { CirclePlus, LayoutPanelTop, Menu, Settings2 } from 'lucide-react';
 import AppLogo from './app-logo';
 import AppLogoIcon from './app-logo-icon';
 import { edit } from '@/routes/profile';
+import { route } from 'ziggy-js';
+
 
 const mainNavItems: NavItem[] = [
     {
@@ -49,7 +51,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Add Book',
-        href: dashboard(),
+        href: route('books.create'),
         icon: CirclePlus,
     },
 ];

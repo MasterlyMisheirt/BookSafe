@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\BookGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Inertia\Inertia;
+
 
 class BookController extends Controller
 {
@@ -44,7 +47,7 @@ class BookController extends Controller
     public function create()
     {
         $bookGroups = Auth::user()->bookGroups()->get();
-        return view('books.create')->with('bookGroups', $bookGroups);
+        return Inertia::render('books/create', ['bookGroups' => $bookGroups]);
     }
 
     /**
