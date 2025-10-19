@@ -36,7 +36,7 @@ import { UserMenuContent } from '@/old_components/user-menu-content';
 import { dashboard } from '@/routes';
 import { type BreadcrumbItem, type NavItem, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { CirclePlus, LayoutPanelTop, Menu, Settings2 } from 'lucide-react';
+import { Book, CirclePlus, LayoutPanelTop, Menu, Settings2 } from 'lucide-react';
 import AppLogo from './app-logo';
 import AppLogoIcon from './app-logo-icon';
 import { edit } from '@/routes/profile';
@@ -48,6 +48,11 @@ const mainNavItems: NavItem[] = [
         title: 'Dashboard',
         href: dashboard(),
         icon: LayoutPanelTop,
+    },
+    {
+        title: 'My Books',
+        href: route('books.index'),
+        icon: Book,
     },
     {
         title: 'Add Book',

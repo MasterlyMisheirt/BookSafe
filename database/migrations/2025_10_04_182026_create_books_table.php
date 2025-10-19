@@ -23,7 +23,8 @@ return new class extends Migration {
             $table->text('description')->nullable();
             $table->integer('page_count')->nullable();
             $table->json('categories')->nullable();
-            $table->string('thumbnail')->nullable();
+            $table->string('cover')->nullable();
+            $table->enum('status', ['read', 'reading', 'want-to-read'])->default('reading');
             $table->foreignIdFor(BookGroup::class)->nullable()->constrained()->nullOnDelete();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->timestamps();

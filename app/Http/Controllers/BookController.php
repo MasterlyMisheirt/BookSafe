@@ -17,8 +17,13 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::whereBelongsTo(Auth::user())->latest('updated_at')->paginate(4);
-        return view('books.index')->with('books', $books);
+        $books = Book::whereBelongsTo(Auth::user())->get();
+        $bookGroups = BookGroup::whereBelongsTo(Auth::user())->get();
+        
+        return Inertia::render('books/index', [
+            'books' => $books,
+            'bookGroups' => $bookGroups
+        ]);
     }
 
     /**
@@ -28,17 +33,26 @@ class BookController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'authors' => 'required|array|min:1',
+            'authors.*' => 'required|string',
+            'published_date' => 'nullable|string',
             'description' => 'required',
+            'cover' => 'nullable|url',
+            'book_group_id' => 'nullable|exists:book_groups,id',
         ]);
 
-        $book = Auth::user()->books()->create([
+        Auth::user()->books()->create([
             'google_book_id' => Str::uuid()->toString(),
             'title' => $request->get('title'),
+            'authors' => $request->get('authors'),
+            'published_date' => $request->get('published_date'),
             'description' => $request->get('description'),
-            'book_group_id' => $request->get('bookGroup_id')
+            'cover' => $request->get('cover'),
+            'book_group_id' => $request->get('book_group_id'),
+            'status' => 'reading',
         ]);
 
-        return to_route('books.show', $book);
+        return to_route('books.index');
     }
 
     /**

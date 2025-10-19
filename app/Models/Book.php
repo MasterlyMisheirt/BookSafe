@@ -19,7 +19,8 @@ class Book extends Model
         'description',
         'page_count',
         'categories',
-        'thumbnail',
+        'cover',
+        'status',
         'book_group_id',
         'user_id'
     ];
