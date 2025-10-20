@@ -36,9 +36,10 @@ class BookController extends Controller
             'authors' => 'required|array|min:1',
             'authors.*' => 'required|string',
             'published_date' => 'nullable|string',
-            'description' => 'required',
+            'description' => 'nullable',
             'cover' => 'nullable|url',
             'book_group_id' => 'nullable|exists:book_groups,id',
+            'status' => 'required|in:read,reading,want-to-read'
         ]);
 
         Auth::user()->books()->create([
@@ -49,7 +50,7 @@ class BookController extends Controller
             'description' => $request->get('description'),
             'cover' => $request->get('cover'),
             'book_group_id' => $request->get('book_group_id'),
-            'status' => 'reading',
+            'status' => $request->get('status', 'reading'),
         ]);
 
         return to_route('books.index');

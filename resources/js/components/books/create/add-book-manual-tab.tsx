@@ -28,7 +28,7 @@ interface ManualBookData {
     description: string;
     cover: string;
     book_group_id: string | number | '';
-    status: 'reading' | 'read' | 'want-to-read';
+    status: string;
 }
 
 interface AddBookManualTabProps {
@@ -73,6 +73,7 @@ export function AddBookManualTab({
                             onChange={(e) => onChange('title', e.target.value)}
                             required
                             className="border-border bg-background text-foreground placeholder:text-muted-foreground"
+                            
                         />
                         {errors?.title && (
                             <p className="text-sm text-red-500">
