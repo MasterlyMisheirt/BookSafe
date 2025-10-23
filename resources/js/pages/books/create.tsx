@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Search, Plus } from 'lucide-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { AddBookSearchTab } from '@/components/books/create/add-book-search-tab';
 import { AddBookManualTab } from '@/components/books/create/add-book-manual-tab';
+import { AddBookSearchTab } from '@/components/books/create/add-book-search-tab';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import AppLayoutTemplate from '@/layouts/app/app-header-layout';
 import { type BookGroup, type GoogleBook } from '@/types';
 import { useForm } from '@inertiajs/react';
+import { Plus, Search } from 'lucide-react';
+import React, { useState } from 'react';
 import { route } from 'ziggy-js';
 
 export default function Create({ bookGroups }: { bookGroups: BookGroup[] }) {
@@ -35,10 +35,7 @@ export default function Create({ bookGroups }: { bookGroups: BookGroup[] }) {
 
     const handleSelect = (book: GoogleBook) => {
         const publishedDate = book.volumeInfo.publishedDate || '';
-        const thumbnail =
-            book.volumeInfo.imageLinks?.thumbnail ||
-            book.volumeInfo.imageLinks?.smallThumbnail ||
-            '';
+        const thumbnail = `https://books.google.com/books/publisher/content/images/frontcover/${book.id}?fife=w1200`;
 
         // Pre-fill the manual form with selected book data
         setData({
@@ -63,9 +60,7 @@ export default function Create({ bookGroups }: { bookGroups: BookGroup[] }) {
                 <main className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-4xl">
                         <div className="mb-8">
-                            <h1 className="mb-2 font-serif text-4xl font-bold text-foreground">
-                                Add a Book
-                            </h1>
+                            <h1 className="heading-primary">Add a Book</h1>
                             <p className="text-lg text-muted-foreground">
                                 Search using Google Books for instant details,
                                 or add manually if you prefer.

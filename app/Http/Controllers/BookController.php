@@ -71,10 +71,11 @@ class BookController extends Controller
     public function show(Book $book)
     {
         if (!$book->user->is(Auth::user())) {
+            
             abort(403);
         }
-
-        return view('books.show', ['book' => $book]);
+        
+        return Inertia::render('books/show', ['book' => $book]);
     }
 
     /**

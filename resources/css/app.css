@@ -141,3 +141,9 @@
         @apply bg-background text-foreground;
     }
 }
+
+@layer components {
+  .heading-primary {
+    @apply mb-2 font-serif text-4xl font-bold text-foreground;
+  }
+}

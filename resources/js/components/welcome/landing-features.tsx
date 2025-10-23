@@ -52,9 +52,7 @@ export function LandingFeatures() {
         <section className="bg-muted/30 py-20 sm:py-32">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-16 text-center">
-                    <h2 className="mb-4 font-serif text-4xl font-bold text-foreground sm:text-5xl">
-                        Why Choose BookSafe?
-                    </h2>
+                    <h2 className="heading-primary">Why Choose BookSafe?</h2>
                     <p className="mx-auto max-w-2xl text-lg text-pretty text-muted-foreground">
                         A book organiser that respects your privacy, works
                         everywhere, and costs nothing.

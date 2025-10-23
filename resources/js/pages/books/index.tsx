@@ -13,11 +13,9 @@ export default function Index({
     return (
         <div className="min-h-screen bg-background">
             <AppLayoutTemplate>
-                <main className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
+                <main className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
                     <div className="mb-8">
-                        <h1 className="mb-2 font-serif text-4xl font-bold text-foreground">
-                            My Books
-                        </h1>
+                        <h1 className="heading-primary">My Books</h1>
                         <p className="text-muted-foreground">
                             Manage and organize your reading collection
                         </p>

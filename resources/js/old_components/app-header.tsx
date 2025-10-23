@@ -236,7 +236,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                                     {item.icon && (
                                                         <Icon
                                                             iconNode={item.icon}
-                                                            className="size-5 opacity-80 group-hover:opacity-100"
+                                                            className="size-5 opacity-80 group-hover:opacity-100 text-foreground"
                                                         />
                                                     )}
                                                 </a>

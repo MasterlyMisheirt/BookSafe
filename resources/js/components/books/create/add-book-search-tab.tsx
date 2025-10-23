@@ -19,10 +19,6 @@ interface Book {
         authors?: string[];
         publishedDate?: string;
         description?: string;
-        imageLinks?: {
-            thumbnail?: string;
-            smallThumbnail?: string;
-        };
         categories?: string[];
     };
 }

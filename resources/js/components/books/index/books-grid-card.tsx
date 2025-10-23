@@ -1,6 +1,8 @@
 import { Card } from '@/components/ui/card';
 import { type Book } from '@/types';
 import { Link } from '@inertiajs/react';
+import { route } from 'ziggy-js';
+
 
 export function BooksGridCard({ book }: { book: Book }) {
     const getStatusBadge = (status: Book['status']) => {
@@ -27,11 +29,11 @@ export function BooksGridCard({ book }: { book: Book }) {
     };
 
     return (
-        <Link href={`/book/${book.id}`}>
+        <Link href={route('books.show', book)}>
             <Card className="group relative cursor-pointer overflow-hidden border-r-4 border-b-4 border-border/50 border-r-border/80 border-b-border/60 p-0 shadow-[4px_4px_8px_rgba(0,0,0,0.15),inset_-2px_0_4px_rgba(0,0,0,0.1)] transition-all duration-300 before:absolute before:inset-y-0 before:left-0 before:w-1 before:bg-gradient-to-r before:from-black/20 before:to-transparent after:absolute after:inset-x-0 after:top-0 after:h-1 after:bg-gradient-to-b after:from-white/10 after:to-transparent hover:translate-x-0.5 hover:-translate-y-1 hover:shadow-[6px_6px_16px_rgba(0,0,0,0.25),inset_-2px_0_6px_rgba(0,0,0,0.15)] hover:shadow-xl">
                 <div className="relative aspect-[2/3] overflow-hidden">
                     <img
-                        src={book.cover || '/placeholder.svg'}
+                        src={book.cover || "/placeholder.png"}
                         alt={book.title}
                         className="h-full w-full object-cover"
                     />
