@@ -1,7 +1,8 @@
 import { Button } from '@/old_components/ui/button';
 import { login } from '@/routes';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Github } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
+import { siGithub } from 'simple-icons';
 
 export function LandingHero() {
     return (
@@ -12,7 +13,12 @@ export function LandingHero() {
                         data-aos="fade-down"
                         className="mb-8 inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-2 text-sm font-medium text-accent"
                     >
-                        <Github className="h-4 w-4" />
+                        <svg
+                            className="h-4 w-4 fill-current"
+                            viewBox="0 0 24 24"
+                        >
+                            <path d={siGithub.path} />
+                        </svg>
                         Free & Open Source
                     </div>
                     <div data-aos="fade-out">
@@ -31,19 +37,31 @@ export function LandingHero() {
                             <Link href={login()} prefetch>
                                 <Button
                                     size="lg"
-                                    className="px-8 text-base cursor-pointer"
+                                    className="cursor-pointer px-8 text-base"
                                 >
                                     <BookOpen className="mr-2 h-5 w-5" />
                                     Start Organising
                                 </Button>
                             </Link>
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="bg-transparent px-8 text-base disabled:cursor-not-allowed"
+                            <a
+                                href="https://github.com/MasterlyMisheirt/BookSafe"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                                Learn More
-                            </Button>
+                                <Button
+                                    size="lg"
+                                    variant="outline"
+                                    className="cursor-pointer bg-transparent px-8 text-base"
+                                >
+                                    <svg
+                                        className="h-4 w-4 fill-current"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path d={siGithub.path} />
+                                    </svg>
+                                    Learn More
+                                </Button>
+                            </a>
                         </nav>
                     </div>
                     <div
